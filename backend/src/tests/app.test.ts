@@ -1,11 +1,11 @@
-import request from 'supertest';
 import { app } from '../index';
-import { Request, Response, NextFunction } from 'express'; // Import the necessary types
+import request from 'supertest';
 
-describe('GET /', () => {
-    it('responds with Hello World!', async () => {
-        const response = await request(app).get('/');
-        expect(response.statusCode).toBe(200);
-        expect(response.text).toBe('Hello World!');
-    });
+// Pruebas de integración para el endpoint raíz
+describe('Endpoint GET /', () => {
+  it('devuelve código 200 con el texto esperado', async () => {
+    const res = await request(app).get('/');
+    expect(res.statusCode).toBe(200);
+    expect(res.text).toBe('Hello World!');
+  });
 });
